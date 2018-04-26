@@ -52,6 +52,7 @@ def check_card(card, hand, events, pos):
     else:
         if hand[pos][1]>= events[card][0] and hand[pos-1][1] <= events[card][0]:
             correct = True
+    print(correct)
     return correct
 
 
@@ -65,11 +66,13 @@ def one_player():
     current_card = view_card(deck)
     print(current_card)
     pos = input('Where does this card fit in your hand?')
-    int(pos)
-    if check_card(current_card,hand, events, int(pos)):
-        hand.append(give_card(deck, events))
-        print("correct")
-    print(hand)
+    pos = int(pos)
+    if check_card(current_card,hand, events, pos):
+        if pos == len(hand):
+            hand.append(give_card(deck, events))
+        else:
+            hand.insert(int(pos), give_card(deck, events))
+    print("Your current hand is:", hand)
 
 
 
