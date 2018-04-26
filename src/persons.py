@@ -26,5 +26,14 @@ def shuffle_events(events):
     return names
 
 
-events = get_events(person_csv)
-shuffle_events(events)
+def one_plyaer():
+    print("Welcome to headlines!")
+    hand = []
+    events = get_events(person_csv)
+    deck = shuffle_events(events)
+    hand.append(deck.pop(0))
+    print("Your current hand is:", hand)
+
+
+one_plyaer()
+
