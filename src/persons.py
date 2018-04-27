@@ -63,16 +63,19 @@ def one_player():
     deck = shuffle_events(events)
     hand.append(give_card(deck, events))
     print("Your current hand is:", hand)
-    current_card = view_card(deck)
-    print(current_card)
-    pos = input('Where does this card fit in your hand?')
-    pos = int(pos)
-    if check_card(current_card,hand, events, pos):
-        if pos == len(hand):
-            hand.append(give_card(deck, events))
+    while len(hand) <=3:
+        current_card = view_card(deck)
+        print(current_card)
+        pos = input('Where does this card fit in your hand?')
+        pos = int(pos)
+        if check_card(current_card,hand, events, pos):
+            if pos == len(hand):
+                hand.append(give_card(deck, events))
+            else:
+                hand.insert(int(pos), give_card(deck, events))
         else:
-            hand.insert(int(pos), give_card(deck, events))
-    print("Your current hand is:", hand)
+            deck.pop(0)
+        print("Your current hand is:", hand)
 
 
 
