@@ -25,13 +25,16 @@ def shuffle_events(events):
     shuffle(names)
     return names
 
+
 def give_card(deck,events):
     card = deck.pop(0)
     card_year = events[card][0]
     return card,card_year
 
+
 def view_card(deck):
     return deck[0]
+
 
 def check_card(card, hand, events, pos):
     """
@@ -50,7 +53,7 @@ def check_card(card, hand, events, pos):
         if hand[len(hand)-1][1] <= events[card][0]:
             correct = True
     else:
-        if hand[pos][1]>= events[card][0] and hand[pos-1][1] <= events[card][0]:
+        if hand[pos][1] >= events[card][0] >= hand[pos - 1][1]:
             correct = True
     print(correct)
     return correct
@@ -76,9 +79,6 @@ def one_player():
         else:
             deck.pop(0)
         print("Your current hand is:", hand)
-
-
-
 
 
 one_player()
