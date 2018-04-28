@@ -63,10 +63,10 @@ def one_player():
     deck = shuffle_events(events)
     hand.append(give_card(deck, events))
     print("Your current hand is:", hand)
-    while len(hand) <=3:
+    while len(hand) <= 9:
         current_card = view_card(deck)
-        print(current_card)
-        pos = input('Where does this card fit in your hand?')
+        print("The next card is: ", current_card)
+        pos = input('Where does %s fit in your hand?\n' % current_card)
         pos = int(pos)
         if check_card(current_card,hand, events, pos):
             if pos == len(hand):
