@@ -26,10 +26,10 @@ def shuffle_events(events):
     return names
 
 
-def give_card(deck,events):
+def give_card(deck, events):
     card = deck.pop(0)
     card_year = events[card][0]
-    return card,card_year
+    return card, card_year
 
 
 def view_card(deck):
@@ -45,7 +45,7 @@ def check_card(card, hand, events, pos):
     :param pos:
     :return:
     """
-    correct =  False
+    correct = False
     if pos == 0:
         if hand[0][1]>= events[card][0]:
             correct = True
@@ -79,6 +79,7 @@ def one_player():
         else:
             deck.pop(0)
         print("Your current hand is:", hand)
+    print("Congratulations you have collected 10 Cards!")
 
 
 one_player()
